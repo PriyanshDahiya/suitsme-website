@@ -84,18 +84,26 @@ section {
   margin-top: 30px;
 }
 
+#screenshots {
+  text-align: center;
+  padding: 20px;
+}
+
+
 .screenshots {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
+  display: flex;                /* Align images horizontally */
+  overflow-x: auto;             /* Enable horizontal scrolling */
+  gap: 15px;                    /* Space between images */
+  padding: 10px 0;              /* Optional: adds padding on top and bottom */
+  justify-content: center;      /* Center the images */
 }
 
 .screenshots img {
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 100%;              /* Makes the images responsive */
+  height: auto;                 /* Keeps the aspect ratio */
+  border-radius: 10px;          /* Optional: rounded corners for the images */
+  flex-shrink: 0;               /* Prevents the images from shrinking */
+  width: 200px;                 /* Optional: sets a fixed width for each image */
 }
 
 footer {
