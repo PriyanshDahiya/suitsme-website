@@ -118,3 +118,47 @@ footer .socials a {
   margin: 0 10px;
   text-decoration: none;
 }
+/* Privacy Policy Page Styling */
+.privacy-policy {
+  max-width: 900px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: left;
+  background-color: #fff;
+  line-height: 1.8;
+}
+
+.privacy-policy h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.privacy-policy h2 {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.privacy-policy p,
+.privacy-policy ul {
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.privacy-policy ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.privacy-policy a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.privacy-policy a:hover {
+  text-decoration: underline;
+}
+
