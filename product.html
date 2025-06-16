@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Opening Product in SuitsMe...</title>
+  <script>
+    window.onload = () => {
+      // Get product ID from URL
+      const params = new URLSearchParams(window.location.search);
+      const productId = params.get('id');
+
+      if (!productId) {
+        document.body.innerText = 'Invalid product link';
+        return;
+      }
+
+      const isAndroid = /android/i.test(navigator.userAgent);
+      const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+
+      // App link handling
+      const androidIntent = `intent://product/${productId}#Intent;scheme=suitsme;package=com.suitsmeapp;end`;
+      const iosLink = `suitsme://product/${productId}`;
+
+      // Try to open the app
+      if (isAndroid) {
+        window.location.href = androidIntent;
+      } else if (isIOS) {
+        window.location.href = iosLink;
+      } else {
+        // Fallback to Play Store
+        window.location.href = "https://play.google.com/store/apps/details?id=com.suitsmeapp";
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting to SuitsMe...</p>
+</body>
+</html>
