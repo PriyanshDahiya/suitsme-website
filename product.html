@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Opening Product in SuitsMe...</title>
   <script>
     window.onload = () => {
-      // Get product ID from URL
       const params = new URLSearchParams(window.location.search);
       const productId = params.get('id');
 
@@ -16,18 +16,23 @@
       const isAndroid = /android/i.test(navigator.userAgent);
       const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
 
-      // App link handling
       const androidIntent = `intent://product/${productId}#Intent;scheme=suitsme;package=com.suitsmeapp;end`;
       const iosLink = `suitsme://product/${productId}`;
+      const fallbackLink = "https://play.google.com/store/apps/details?id=com.suitsmeapp";
 
-      // Try to open the app
+      // Redirect logic
       if (isAndroid) {
         window.location.href = androidIntent;
+
+        // Fallback in case app isn't installed (delayed)
+        setTimeout(() => {
+          window.location.href = fallbackLink;
+        }, 2000);
       } else if (isIOS) {
         window.location.href = iosLink;
+        // Optionally, add a fallback here for iOS App Store if needed
       } else {
-        // Fallback to Play Store
-        window.location.href = "https://play.google.com/store/apps/details?id=com.suitsmeapp";
+        window.location.href = fallbackLink;
       }
     };
   </script>
